@@ -1,51 +1,61 @@
 Pima Diabetes Prediction using Neural Networks
 
-This project builds and evaluates a Neural Network model to predict the likelihood of diabetes using the Pima Indians Diabetes Dataset. The implementation is provided in a Jupyter Notebook: pima_diabetes_nn.ipynb
+Diabetes Prediction using Neural Networks
+Problem Statement
 
- Project Overview:
+Diabetes is a chronic  disease that requires early detection to prevent long term complications. The objective of this project is to build a machine learning model capable of predicting whether a patient has diabetes based on clinical diagnostic measurements.
 
-The goal of this project is to: Perform data preprocessing and cleaning
-Explore and analyze the dataset,Build a Neural Network model,Train and evaluate the model,Measure performance using classification metrics
+The model is trained using the Pima Indians Diabetes Dataset, which includes medical features such as glucose level, blood pressure, BMI, insulin level, age, and number of pregnancies. The target variable (Outcome) indicates whether a patient is diabetic (1) or not (0). The goal is to develop a predictive system that can support early diabetes screening using these features.
 
-The model predicts whether a patient is diabetic based on medical attributes.
+Approach
 
+This project follows a complete machine learning workflow:
 
- Dataset Description
+1. Data Preprocessing
 
-The dataset contains medical diagnostic measurements for female patients of Pima Indian heritage.
+The dataset was loaded and split into training (80%) and testing (20%) sets using stratified sampling to preserve class distribution.
 
-Features:Pregnancies,Glucose,Blood Pressure,Skin Thickness,Insulin,BMI (Body Mass Index),Diabetes Pedigree Function,Age
+Feature scaling was applied using StandardScaler to normalize input features and improve neural network training stability.
 
-Target:
+Early stopping was implemented to prevent overfitting by monitoring validation loss during training.
 
-Outcome
+2. Model Architecture
 
-0 = Non-diabetic
+A feedforward neural network was built using TensorFlow/Keras with the following structure:
 
-1 = Diabetic
+Input layer: 8 medical features
 
- Technologies Used
+Hidden layer 1: 16 neurons with ReLU activation
 
-Python,Jupyter Notebook,NumPy,Pandas,Matplotlib / Seaborn (for visualization),Scikit-learn,TensorFlow / Keras (for Neural Network model)
+Hidden layer 2: 8 neurons with ReLU activation
 
- Data Preprocessing
+Output layer: 1 neuron with Sigmoid activation for binary classification
 
-The notebook includes:Handling missing or zero values,Feature scaling / normalization,Train-test split
+The model was trained using the Adam optimizer with binary crossentropy loss and binary accuracy as the evaluation metric.
 
-Data visualization and exploration
+3. Evaluation Metrics
 
- Model Architecture
+Model performance was evaluated on a test set that was not used during training. The following metrics were calculated:
 
-The Neural Network typically includes:
+Accuracy,Precision,Recall,F1 Score,Confusion Matrix
 
-Input layer (based on number of features)
+Training and validation accuracy/loss curves were also generated to analyze learning behavior and detect overfitting.
 
-One or more hidden layers with activation functions (e.g., ReLU)
+Results
 
-Output layer with Sigmoid activation (for binary classification)
+The final model achieved the following performance on the test set:
 
-Loss Function: Binary Crossentropy,Optimizer:Adam (or similar)
-Evaluation Metrics:Accuracy,Confusion Matrix,Precision,Recall,F1-score
+Test Accuracy: 73.38%
+
+Precision: 0.6226
+
+Recall: 0.6111
+
+F1 Score: 0.6168
+
+The results indicate that the model captures meaningful relationships between the clinical features and diabetes outcomes. While overall accuracy is acceptable for a baseline neural network, recall shows that some diabetes cases are not detected, which is an important consideration in medical applications.
+
+All evaluation outputs, including the confusion matrix and training curves, are saved in the results/ directory.
 
 Analysis:
 
