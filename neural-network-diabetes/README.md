@@ -59,7 +59,7 @@ From a medical perspective, recall is particularly important because false negat
 
  How to Run the Project
 1- Clone the Repository
-git clone 
+git clone : https://github.com/ranayasser-lab/task1.git
 2- Install Required Libraries
 pip install numpy pandas matplotlib seaborn scikit-learn tensorflow
 3️- Run the Notebook
